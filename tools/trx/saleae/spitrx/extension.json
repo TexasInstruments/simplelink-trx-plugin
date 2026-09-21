@@ -1,0 +1,13 @@
+{
+  "name": "CC130x/CC140x TRX SPI",
+  "apiVersion": "1.0.0",
+  "author": "Aslak Normann",
+  "version": "0.5.1",
+  "description": "",
+  "extensions": {
+    "SPITRX": {
+      "type": "HighLevelAnalyzer",
+      "entryPoint": "HighLevelAnalyzer.Hla"
+    }
+  }
+}

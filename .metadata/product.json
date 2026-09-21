@@ -1,0 +1,14 @@
+{
+    "name": "simplelink_trx_plugin",
+    "displayName": "simplelink_trx_plugin",
+    "version": "1.00.00.52",
+    "documentationPath": "../docs",
+    "includePaths": [
+        "../source"
+    ],
+    "components": [],
+    "devices": [
+        "CC[12][36][0-9][^0].*"
+    ],
+    "minToolVersion": "1.21.1"
+}

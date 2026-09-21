@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Examples",
+        "resourceClass": [
+            "example"
+        ],
+        "resourceSubClass": [
+            "example.outofbox"
+        ],
+        "mainCategories": [
+            []
+        ],
+        "subCategories": [],
+        "resourceType": "categoryInfo",
+        "description": "<p>TI's SimpleLink TRX Plugin provides a comprehensive set of examples to help developers get started with the SimpleLink CC13xx CC26xx family of wireless microcontrollers. </p>"
+    },
+        {
+        "name": "Documents",
+        "resourceClass": [
+            "document"
+        ],
+        "mainCategories": [
+            []
+        ],
+        "subCategories": [],
+        "resourceType": "categoryInfo",
+        "description": "<p>The SimpleLink TRX Plugin comes with documentation for all of the supported software libraries included in the Plugin. For a good overview of what documentation is available in the SimpleLink TRX Plugin, go to \"Documentation Overview\". To get started quickly with the SimpleLink TRX Plugin, go to \"Quick Start Guide\".</p>"
+    }
+]

@@ -1,0 +1,125 @@
+[
+    {
+        "name": "Release Notes",
+        "resourceType": "file",
+        "location": "../../release_notes_simplelink_trx_plugin_1_00_00_52.html",
+        "devices": [
+            "CC1352R1F3",
+            "CC2642R1F"
+        ],
+        "devtools": [
+            "LAUNCHXL-CC13X2R1",
+            "LAUNCHXL-CC26X2R1"
+        ],
+        "categories": [
+            "Documents"
+        ],
+        "mainCategories": [
+            [
+                "Documents"
+            ]
+        ],
+        "resourceClass": [
+            "document"
+        ]
+    },
+    {
+        "name": "Documentation Overview",
+        "resourceType": "file",
+        "location": "../../docs/Documentation_Overview.html",
+        "devices": [
+            "CC1352R1F3",
+            "CC2642R1F"
+        ],
+        "devtools": [
+            "LAUNCHXL-CC13X2R1",
+            "LAUNCHXL-CC26X2R1"
+        ],
+        "categories": [
+            "Documents"
+        ],
+        "mainCategories": [
+            [
+                "Documents"
+            ]
+        ],
+        "resourceClass": [
+            "document"
+        ]
+    },
+    {
+        "name": "TRX Host Driver API Documentation",
+        "resourceType": "file",
+        "location": "../../docs/trx_prop_rf/html/index.html",
+        "devices": [
+            "CC13x1",
+            "CC13x2",
+            "CC13x2x7",
+            "CC13X4",
+            "CC26x1",
+            "CC26x2",
+            "CC26x2x7"
+        ],
+        "devtools": [
+            "LAUNCHXL-CC13X2R1",
+            "LAUNCHXL-CC26X2R1",
+            "LP-CC1312R7",
+            "LP-CC1352P7-1",
+            "LP-CC1352P7-4",
+            "LP-CC2652R7",
+            "LP-EM-CC1314R10",
+            "LP-EM-CC1354P10-1",
+            "LP-EM-CC1354P10-6"
+        ],
+        "categories": [
+            "Documents"
+        ],
+        "mainCategories": [
+            [
+                "Documents"
+            ]
+        ],
+        "subCategories": [
+            "TRX Host Driver"
+        ],
+        "resourceClass": [
+            "document"
+        ]
+    },
+    {
+        "name": "TRX Host Driver Release Notes",
+        "resourceType": "file",
+        "location": "../../docs/trx_prop_rf/trxhost_1_03_00_release_notes.html",
+        "devices": [
+            "CC13x1",
+            "CC13x2",
+            "CC13x2x7",
+            "CC13X4",
+            "CC26x1",
+            "CC26x2",
+            "CC26x2x7"
+        ],
+        "devtools": [
+            "LAUNCHXL-CC13X2R1",
+            "LAUNCHXL-CC26X2R1",
+            "LP-CC1312R7",
+            "LP-CC1352P7-1",
+            "LP-CC1352P7-4",
+            "LP-CC2652R7",
+            "LP-EM-CC1314R10",
+            "LP-EM-CC1354P10-1",
+            "LP-EM-CC1354P10-6"
+        ],
+        "mainCategories": [
+            [
+                "Documents"
+            ]
+        ],
+        "subCategories": [
+            "TRX Host Driver"
+        ],
+        "resourceClass": [
+            "document"
+        ]
+    }
+]

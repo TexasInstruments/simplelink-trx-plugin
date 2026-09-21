@@ -1,0 +1,17 @@
+[
+    {
+        "files": [
+            "+../../../../../../../source/ti/ssbl/bldrcmds.h -> bldrcmds.h",
+            "+../../../../../../../source/ti/ssbl_host/ssbl_host_main.c -> ssbl_host_main.c",
+            "+../../../../../../../source/ti/ssbl_host/ssbl_host.h -> ssbl_host.h",
+            "+../../../../../../../source/ti/ssbl_host/ssbl_host.c -> ssbl_host.c",
+            "+../../../../../../../source/ti/ssbl_host/example_customer_private.pem -> example_customer_private.pem",
+            "+../../../../../../../source/ti/ssbl_host/example_customer_public.pem -> example_customer_public.pem",
+            "+../../../../../../../source/ti/ssbl_host/README.md -> README.md",
+            "+../../../../../../../source/ti/ssbl_host/README.html -> README.html",
+            "+../ssbl_host.syscfg -> ssbl_host.syscfg",
+            "+../../../../../../../source/ti/ssbl_host/main_freertos.c -> main_freertos.c",
+            "+cc13x4_cc26x4_freertos.lds -> cc13x4_cc26x4_freertos.lds"
+        ]
+    }
+]

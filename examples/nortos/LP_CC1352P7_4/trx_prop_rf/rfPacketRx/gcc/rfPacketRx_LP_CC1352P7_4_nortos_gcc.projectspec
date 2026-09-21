@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectSpec>
+    <applicability>
+        <when>
+            <context
+                deviceFamily="ARM"
+                deviceId="Cortex M.CC1352P7"
+            />
+        </when>
+    </applicability>
+
+    <project
+        title="RF Packet RX"
+        name="rfPacketRx_LP_CC1352P7_4_nortos_gcc"
+        configurations="Debug"
+        toolChain="GNU"
+        cgtVersion="GNU_12.3.1"
+        connection="TIXDS110_Connection.xml"
+        device="Cortex M.CC1352P7"
+        ignoreDefaultDeviceSettings="true"
+        ignoreDefaultCCSSettings="true"
+        products="com.ti.SIMPLELINK_TRX_PLUGIN;com.ti.SIMPLELINK_CC13XX_CC26XX_SDK;sysconfig"
+        compilerBuildOptions="
+            -I${PROJECT_ROOT}
+            -I${PROJECT_ROOT}/${ConfigName}
+            -Dxti_log_Log_ENABLE
+            -I${COM_TI_SIMPLELINK_TRX_PLUGIN_INSTALL_DIR}/source
+            -DTRX_CC1407
+            -DTRX_FEATURE_CC1407
+            -I${COM_TI_SIMPLELINK_CC13XX_CC26XX_SDK_INSTALL_DIR}/source
+            -Os
+            -I${COM_TI_SIMPLELINK_CC13XX_CC26XX_SDK_INSTALL_DIR}/kernel/nortos
+            -I${COM_TI_SIMPLELINK_CC13XX_CC26XX_SDK_INSTALL_DIR}/kernel/nortos/posix
+            -mcpu=cortex-m4
+            -march=armv7e-m
+            -mthumb
+            -std=c99
+            -std=c++11
+            -mfloat-abi=hard
+            -mfpu=fpv4-sp-d16
+            -ffunction-sections
+            -fdata-sections
+            -g
+            -Wall
+            -I${CG_TOOL_ROOT}/arm-none-eabi/include/newlib-nano
+            -I${CG_TOOL_ROOT}/arm-none-eabi/include
+        "
+        linkerBuildOptions="
+            -L${COM_TI_SIMPLELINK_TRX_PLUGIN_INSTALL_DIR}/source
+            -Wl,-l:ti/trx/host/lib/gcc/m4f/trx_host.a
+            -L${COM_TI_SIMPLELINK_CC13XX_CC26XX_SDK_INSTALL_DIR}/source
+            -eresetISR
+            -L${COM_TI_SIMPLELINK_CC13XX_CC26XX_SDK_INSTALL_DIR}/kernel/nortos
+            -L${PROJECT_BUILD_DIR}/syscfg
+            -lti_utils_build_linker.cmd.genlibs
+            -l:ti/devices/cc13x2x7_cc26x2x7/driverlib/bin/gcc/driverlib.lib
+            -march=armv7e-m
+            -mthumb
+            -mfloat-abi=hard
+            -mfpu=fpv4-sp-d16
+            -nostartfiles
+            -static
+            -Wl,--gc-sections
+            -L${CG_TOOL_ROOT}/arm-none-eabi/lib/thumb/v7e-m/hard
+            -lgcc
+            -lc
+            -lm
+            --specs=nano.specs
+            --specs=nosys.specs
+        "
+        enableHexTool="true"
+        hexBuildOptions="-O ihex --remove-section .resetVecs --remove-section .dmaSpi0RxControlTableEntry --remove-section .dmaSpi0TxControlTableEntry --remove-section .dmaSpi1RxControlTableEntry --remove-section .dmaSpi1TxControlTableEntry --remove-section .dmaSpi0RxAltControlTableEntry --remove-section .dmaSpi0TxAltControlTableEntry --remove-section .dmaSpi1RxAltControlTableEntry --remove-section .dmaSpi1TxAltControlTableEntry"
+        sysConfigBuildOptions="
+            --product ${COM_TI_SIMPLELINK_TRX_PLUGIN_INSTALL_DIR}/.metadata/product.json
+            --product ${COM_TI_SIMPLELINK_CC13XX_CC26XX_SDK_INSTALL_DIR}/.metadata/product.json
+            --compiler gcc
+        "
+        description="A receiver example on how to use the TRX Host Driver">
+        <property name="buildProfile" value="release"/>
+        <property name="isHybrid" value="true"/>
+        <file path="../rfPacketRx.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../README.md" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_wisun.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_wisun.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_2gfsk50kbps.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_2gfsk50kbps.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_2gfsk9p6kbps.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_2gfsk9p6kbps.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_2gfsk38p4kbps.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_2gfsk38p4kbps.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_general_purpose_gfsk.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_general_purpose_gfsk.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_2gfsk50kbps_lp.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_2gfsk50kbps_lp.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_sunoqpsk.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_sunoqpsk.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_ofdmlr_8p33ksps.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_ofdmlr_8p33ksps.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_ofdmlr_16p67ksps.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_ofdmlr_16p67ksps.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_ofdmlr_66p67ksps.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_ofdmlr_66p67ksps.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_xlr_20ksps.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_xlr_20ksps.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_dualrx_sun_oqpsk_2gfsk38p4kbps.c" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="../source/ti/trx/rfconfig/BP_EM_CC1407P_SE/rcl_settings_dualrx_sun_oqpsk_2gfsk38p4kbps.h" openOnCreation="false" excludeFromBuild="false" action="copy" targetDirectory="source/ti/trx/rfconfig/BP_EM_CC1407P_SE">
+        </file>
+        <file path="${COM_TI_SIMPLELINK_TRX_PLUGIN_INSTALL_DIR}/source/ti/trx/host/hal/platform.h" openOnCreation="false" excludeFromBuild="false" action="link" targetDirectory="source/ti/trx/host/hal">
+        </file>
+        <file path="${COM_TI_SIMPLELINK_TRX_PLUGIN_INSTALL_DIR}/source/ti/trx/host/hal/platform_spi.c" openOnCreation="false" excludeFromBuild="false" action="link" targetDirectory="source/ti/trx/host/hal">
+        </file>
+        <file path="${COM_TI_SIMPLELINK_TRX_PLUGIN_INSTALL_DIR}/source/ti/trx/host/hal/platform_util.c" openOnCreation="false" excludeFromBuild="false" action="link" targetDirectory="source/ti/trx/host/hal">
+        </file>
+        <file path="../rfPacketRx.syscfg" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../main_nortos.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="../syscall_stubs.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="${COM_TI_SIMPLELINK_CC13XX_CC26XX_SDK_INSTALL_DIR}/source/ti/boards/LP_CC1352P7_4/Board.html" openOnCreation="false" excludeFromBuild="false" action="link">
+        </file>
+        <file path="../nortos/gcc/cc13x2x7_cc26x2x7_nortos.lds" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+    </project>
+</projectSpec>

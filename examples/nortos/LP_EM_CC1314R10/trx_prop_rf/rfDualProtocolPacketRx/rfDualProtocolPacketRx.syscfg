@@ -1,0 +1,84 @@
+/*
+ * Copyright (c) 2026, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+// @cliArgs --board /ti/boards/LP_EM_CC1314R10 --rtos nortos
+
+/*
+ *  rfPacketRx.syscfg
+ */
+
+/* ======== Kernel Configuration ======== */
+system.getScript("kernel_config_release.syscfg.js");
+
+/* ======== Pull in SPI and GPIO settings ======== */
+const gpio_and_spi_settings = system.getScript("/ti/trx/host/gpio_spi_settings.syscfg.js");
+
+/* ======== LED ======== */
+const LED = scripting.addModule("/ti/drivers/GPIO");
+const LED_R = LED.addInstance();
+const LED_G = LED.addInstance();
+
+/* if a red LED component exists, assign it to the LED_R instance */
+if (system.deviceData.board && system.deviceData.board.components.LED_RED) {
+    LED_R.$hardware = system.deviceData.board.components.LED_RED;
+}
+else
+{
+    LED_R.mode = "Output";   // Set the LED pin to output
+}
+
+LED_R.$name = "CONFIG_GPIO_RLED";
+
+/* if a green LED component exists, assign it to the LED_G instance */
+if (system.deviceData.board && system.deviceData.board.components.LED_GREEN) {
+    LED_G.$hardware = system.deviceData.board.components.LED_GREEN;
+}
+else
+{
+    LED_G.mode = "Output";   // Set the LED pin to output
+}
+
+LED_G.$name = "CONFIG_GPIO_GLED";
+
+/* ======== SFD Pin ======== */
+const SFD = scripting.addModule("/ti/drivers/GPIO");
+const SFD_PIN = SFD.addInstance();
+SFD_PIN.$name             = "CONFIG_GPIO_SFD";
+SFD_PIN.gpioPin.$assign   = "boosterpack.25";
+SFD_PIN.mode              = "Output";
+
+/* ======== Device ======== */
+var device = scripting.addModule("ti/devices/CCFG");
+const ccfgSettings = system.getScript("/ti/common/lprf_ccfg_settings.js").ccfgSettings;
+for(var setting in ccfgSettings)
+{
+    device[setting] = ccfgSettings[setting];
+}
